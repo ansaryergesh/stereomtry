@@ -3,7 +3,7 @@ import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
     Button, Modal, ModalHeader, ModalBody,
     Form, FormGroup, Input, Label } from 'reactstrap';
 import {NavLink} from 'react-router-dom';
-
+import {Logo} from '../assets/images/logo.png'
 class Header extends Component {
     constructor(props) {
         super(props);
@@ -41,7 +41,7 @@ class Header extends Component {
               <div className="container">
                   <NavbarToggler onClick={this.toggleNav} />
                   <NavbarBrand className='mr-auto' href="/">
-                      <img src='https://i.pinimg.com/originals/a7/62/2e/a7622e9d64921dbe9792d5cf11fca089.png' height='40' width='40' alt='logo'/>
+                      <img src={require('../assets/images/logo.png')} className='logo' height='40' width='40' alt='logo'/>
                   </NavbarBrand>
                   <Collapse isOpen={this.state.isNavOpen} navbar>
                     <Nav navbar>
@@ -68,16 +68,7 @@ class Header extends Component {
                   </Collapse>
               </div>
             </Navbar>
-            <Jumbotron>
-                 <div className="container">
-                     <div className="row row-header">
-                         <div className="col-12 col-sm-6">
-                             <h1>Ristorante con Fusion</h1>
-                             <p>We take inspiration from the World's best cuisines, and create a unique fusion experience.Text text text ewedsadalsd;l!</p>
-                         </div>
-                     </div>
-                 </div>
-             </Jumbotron>
+
 
              <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                  <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>

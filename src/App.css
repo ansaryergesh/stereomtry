@@ -30,10 +30,21 @@ address {
 }
 
 .navbar-dark {
-  background-color: #512DA8;
+  background-color: #230c93;
 }
 
 .leaderImg {
   width: 100px;
   height: 80px;
+}
+
+.logo {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .logo {
+    display: block;
+    margin-right: 50px;
+  }
 }
