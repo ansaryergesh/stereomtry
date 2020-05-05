@@ -4,8 +4,8 @@ export const DISHES =
     [
         {
         id: 0,
-        name:'Uthappizza',
-        image: 'https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        name:'Cube',
+        image: 'https://media1.thehungryjpeg.com/thumbs2/ori_3611119_vl2fxezs84fi36zb0zzz5ewqtar8gade385x8rkl_white-3d-cube.jpg',
         category: 'mains',
         label:'Hot',
         price:'4.99',
@@ -14,8 +14,8 @@ export const DISHES =
         },
         {
         id: 1,
-        name:'Zucchipakoda',
-        image: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg',
+        name:'Prisma',
+        image: 'https://media.istockphoto.com/vectors/blank-white-prism-3d-box-template-vector-id539026276',
         category: 'appetizer',
         label:'',
         price:'1.99',
@@ -24,8 +24,8 @@ export const DISHES =
         },
         {
         id: 2,
-        name:'Vadonut',
-        image: 'https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        name:'Rectangle',
+        image: 'https://www.clipartkey.com/mpngs/m/180-1809983_3d-rectangle-clipart-rectangle-box-3d-png.png',
         category: 'appetizer',
         label:'New',
         price:'1.99',
@@ -34,8 +34,8 @@ export const DISHES =
         },
         {
         id: 3,
-        name:'ElaiCheese Cake',
-        image: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg',
+        name:'Triangle',
+        image: 'https://3dwarehouse.sketchup.com/warehouse/v1.0/publiccontent/bcfce175-91e9-4a65-8730-5073fcc4c3e5',
         category: 'dessert',
         label:'',
         price:'2.99',

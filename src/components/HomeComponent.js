@@ -1,38 +1,53 @@
-import React from 'react';
-import { Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle} from 'reactstrap';
+import React, {Component} from 'react';
+// import { FaDownload, FaPlay } from 'react-icons/fa';
+import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media, Button } from 'reactstrap';
+import Phone from '../assets/images/1.png';
+import ModalVideo from 'react-modal-video'
 
-function RenderCard({item}) {
+class Home extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: false
+        };
 
+        this.onOpenModal = this.onOpenModal.bind(this);
+    }
+
+    onOpenModal() {
+        this.setState({open: true})
+    }
+    
+    render() {
     return(
-        <Card>
-            <CardImg src={item.image} alt={item.name} />
-            <CardBody>
-            <CardTitle>{item.name}</CardTitle>
-            {item.designation ? <CardSubtitle>{item.designation}</CardSubtitle> : null }
-            <CardText>{item.description}</CardText>
-            </CardBody>
-        </Card>
+        <div className='homePage row'>
+                <div className="col-12 col-md-8 infoDesc">
+                    <div className='textBlock'>
+                    <h1 className='heading1'>AR Stereomtry</h1>
+                    <h2 className='heading2'>Application for school students</h2>
+                    </div>
+                    <p className='text'>200 tg - download AR Stereomtry mobile app and prepare for having <br></br> a lot of fun working with Augmented Reality</p>
+                   
+                    <div className='buttonsPr'>
+                        <Button className='android'><span className='fa fa-play '> Play Market</span></Button>
+                        <Button className='ios'><span className='fa fa-apple '> App Store</span></Button>
+                    </div>
+                </div>
+                <div className="col-12 col-md-4 product">
+                   <img src = {require('../assets/images/1.png')} className='phone' />
+                   {/* <img src = {require('../assets/images/play-circle-regular.svg')} className='playBtn' /> */}
+                   <div>
+                   <ModalVideo channel='youtube' className='video'  isOpen={this.state.open} videoId='3ITdZJPzrWs' onClose={() => this.setState({open: false})} />
+                   <span onClick={this.onOpenModal} className="fa fa-play-circle-o fa-3x playBtn" aria-hidden="true"></span>
+                   </div>
+                   
+                </div>
+                </div>
+            
+      
+    
     );
-
-}
-
-function Home(props) {
-    return(
-        <div className="container">
-            <div className="row align-items-start">
-                <div className="col-12 col-md m-1">
-                    <RenderCard item={props.dish} />
-                </div>
-                <div className="col-12 col-md m-1">
-                    <RenderCard item={props.promotion} />
-                </div>
-                <div className="col-12 col-md m-1">
-                    <RenderCard item={props.leader} />
-                </div>
-            </div>
-        </div>
-    );
+    }
 }
 
 export default Home;

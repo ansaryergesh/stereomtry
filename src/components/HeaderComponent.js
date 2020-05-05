@@ -3,37 +3,25 @@ import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
     Button, Modal, ModalHeader, ModalBody,
     Form, FormGroup, Input, Label } from 'reactstrap';
 import {NavLink} from 'react-router-dom';
-import {Logo} from '../assets/images/logo.png'
+import SimpleModal from "./SimpleModal";
 class Header extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isNavOpen: false,
-            isModalOpen: false
-        };
-        this.toggleNav = this.toggleNav.bind(this);
-        this.toggleModal = this.toggleModal.bind(this);
-        this.handleLogin = this.handleLogin.bind(this);
-    }
+      constructor(props) {
+    super(props);
+    this.state = {
+        isNavOpen: false,
+        isOpen: false
+    };
 
-    toggleNav() {
-        this.setState ({
-            isNavOpen: !this.state.isNavOpen
-        });
-    }
+    this.toggleNav = this.toggleNav.bind(this);
+  }
 
-    toggleModal() {
-        this.setState({
-            isModalOpen: !this.state.isModalOpen
-        })
-    }
+  toggleNav() {
+    this.setState ({
+        isNavOpen: !this.state.isNavOpen
+    });
+}
 
-    handleLogin(event) {
-        this.toggleModal();
-        alert("Username: " + this.username.value + " Privet");
 
-        event.preventDefault();
-    }
     render() {
         return (
           <React.Fragment>
@@ -52,7 +40,7 @@ class Header extends Component {
                             <NavLink className='nav-link' to='/aboutus'><span className='fa fa-info fa-lg'></span> About us</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className='nav-link' to='/menu'><span className='fa fa-list fa-lg'></span> Menu</NavLink>
+                            <NavLink className='nav-link' to='/figures'><span className='fa fa-list fa-lg'></span> Figures</NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink className='nav-link' to='/contactus'><span className='fa fa-address-card fa-lg'></span> Contact</NavLink>
@@ -60,43 +48,59 @@ class Header extends Component {
                     </Nav>
                     <Nav className='ml-auto' navbar>
                         <NavItem>
-                            <Button outline onClick={this.toggleModal}>
-                                <span className='fa fa-sign-in fa-lg'>Login</span>
-                            </Button>
+                         
+                            <SimpleModal buttonText="Content of App">
+                                <div>
+                                <h1>Topic List</h1>
+                                <div className='allList'>
+                                <p> Теорема о трех перпендикулярах</p>
+                                    <p>Нахождение угла между прямыми</p>
+                                    <p>Пирамида</p>
+                                    <p>
+                                        Призма
+                                    </p>
+                                    <p>
+                                        Параллелепипед (частный случай призмы)
+                                    </p>
+                                    <p>
+                                        Куб (частный случай прямоугольного параллелепипеда)
+                                    </p>
+                                    <p>
+                                        Цилиндр
+                                    </p>
+                                    <p>
+                                        Вписанные и описанные поверхности
+                                    </p>
+                                    <p>
+                                        Сечения различных пространственных фигур
+                                    </p>
+                                    <p>
+                                        Теорема о трех перпендикулярах
+                                    </p>
+                                    <p>
+                                        Нахождение угла между плоскостями (двугранный угол)
+                                    </p>
+                                    <p>
+                                        Правильная и прямоугольная пирамиды
+                                    </p>
+                                    <p>
+                                        Прямая и правильная призмы
+                                    </p>
+                                    <p>
+                                        Прямоугольный параллелепипед
+                                    </p>
+                                </div>
+                                </div>
+                            </SimpleModal>
+                                {/* <span className='fa fa-pencil fa-lg'>Content of App</span> */}
                         </NavItem>
                     </Nav>
                   </Collapse>
               </div>
             </Navbar>
 
-
-             <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                 <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
-                 <ModalBody>
-                 <Form onSubmit={this.handleLogin}>
-                            <FormGroup>
-                                <Label htmlFor="username">Username</Label>
-                                <Input type="text" id="username" name="username"
-                                    innerRef={(input) => this.username = input} />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label htmlFor="password">Password</Label>
-                                <Input type="password" id="password" name="password"
-                                    innerRef={(input) => this.password = input}  />
-                            </FormGroup>
-                            <FormGroup check>
-                                <Label check>
-                                    <Input type="checkbox" name="remember"
-                                    innerRef={(input) => this.remember = input}  />
-                                    Remember me
-                                </Label>
-                            </FormGroup>
-                            <Button type="submit" value="submit" color="primary">Login</Button>
-                    </Form>
-                 </ModalBody>
-             </Modal>
           </React.Fragment>
-        );        
+        );
     }
 }
 

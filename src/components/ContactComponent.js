@@ -26,7 +26,7 @@ class Contact extends Component {
     render() {
         return(
             <div className="container">
-                <div classname="row">
+                <div classname="row h-100 justify-content-center align-items-center">
                     <Breadcrumb>
                         <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
                         <BreadcrumbItem>Contact us</BreadcrumbItem>
@@ -36,40 +36,15 @@ class Contact extends Component {
                         <hr/>
                     </div>
                 </div>
-                <div className="row row-content">
-                    <div className="col-12">
-                        <h3>Location Information</h3>
-                    </div>
-                    <div className="col-12 col-sm-4 offset-sm-1">
-                            <h5>Our Address</h5>
-                            <address>
-                            121, Clear Water Bay Road<br />
-                            Clear Water Bay, Kowloon<br />
-                            HONG KONG<br />
-                            <i className="fa fa-phone"></i>: +852 1234 5678<br />
-                            <i className="fa fa-fax"></i>: +852 8765 4321<br />
-                            <i className="fa fa-envelope"></i>: <a href="mailto:confusion@food.net">confusion@food.net</a>
-                            </address>
-                    </div>
-                    <div className="col-12 col-sm-6 offset-sm-1">
-                        <h5>Map of our Location</h5>
-                    </div>
-                    <div className="col-12 col-sm-11 offset-sm-1">
-                        <div className="btn-group" role="group">
-                            <a role="button" className="btn btn-primary" href="tel:+85212345678"><i className="fa fa-phone"></i> Call</a>
-                            <a role="button" className="btn btn-info"><i className="fa fa-skype"></i> Skype</a>
-                            <a role="button" className="btn btn-success" href="mailto:confusion@food.net"><i className="fa fa-envelope-o"></i> Email</a>
-                        </div>
-                    </div>
-                </div>
-                <div className = 'row row-content'>
+    
+                <div className = 'row row-content justify-content-center align-items-center' >
                     <div className= 'col-12'>
-                        <h3>Give Feedback</h3>
+                        <h3 className='text-center'>Give Feedback</h3>
                     </div>
                     <div className = 'col-12 col-md-9'>
                         <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
                             <Row className='form-group'>
-                                <Label htmlFor='firstname' md={2}>FirstName:</Label>
+                                <Label htmlFor='firstname' md={2}>Name:</Label>
                                 <Col md={10}>
                                     <Control.text model='.firstname' id='firstname' name='firstname' placeholder='First Name'
                                      className='form-control'
@@ -78,53 +53,15 @@ class Contact extends Component {
                                        }}
                                      />
                                      <Errors  className='text-danger' model='.firstname' show='touched' messages={{
-                                         required: 'Required',
-                                         minLength: 'Must be greater than 2 characters',
-                                         maxLength: 'Must be less than 25 characters',
+                                         required: 'Required!',
+                                         minLength: ' must be greater than 2 characters',
+                                         maxLength: ' must be less than 25 characters',
                                      }}/>
                                 </Col>
                             </Row>
 
                             <Row className='form-group'>
-                                <Label htmlFor='lastname' md={2}>LastName:</Label>
-                                <Col md={10}>
-                                    <Control.text model='.lastname' id='lastname' name='lastname' placeholder='Last Name'
-                                      className='form-control'
-                                      validators = {{
-                                        required,minLength: minLength(3), maxLength: maxLength(25)
-                                      }}  
-                                    />
-                                    <Errors  className='text-danger' model='.lastname' show='touched' 
-                                        messages={{
-                                            required: 'Required',
-                                            minLength: 'Must be greater than 2 characters',
-                                            maxLength: 'Must be less than 25 characters',
-                                         }}
-                                    />
-                                </Col>
-                            </Row>
-
-                            <Row className='form-group'>
-                                <Label htmlFor='telnum' md={2}>TelNum:</Label>
-                                <Col md={10}>
-                                    <Control.text model='.telnum' id='telnum' name='telnum' placeholder='87089999998'
-                                      validators = {{
-                                        required,minLength: minLength(3), maxLength: maxLength(25), isNumber
-                                      }}  
-                                      className='form-control'  />
-                                    <Errors  className='text-danger' model='.telnum' show='touched' 
-                                        messages={{
-                                            required: 'Required',
-                                            minLength: 'Must be greater than 2 numbers',
-                                            maxLength: 'Must be less than 25 numbers',
-                                            isNumber: 'only numbers'
-                                         }}
-                                    />
-                                </Col>
-                            </Row>
-
-                            <Row className='form-group'>
-                                <Label htmlFor='email' md={2}>email:</Label>
+                                <Label htmlFor='email' md={2}>Email:</Label>
                                 <Col md={10}>
                                     <Control.text model='.email' id='email' name='email' placeholder='example@example.com'
                                         className='form-control'
@@ -135,12 +72,11 @@ class Contact extends Component {
                                     />
                                     <Errors  className='text-danger' model='.email' show='touched' 
                                         messages={{
-                                            required: 'Required',
-                                            validEmail: 'Invalid email address!'
+                                            required: 'Required!',
+                                            validEmail: ' Invalid email address!'
                                          }}
                                 />
                                 </Col>
-                                
                             </Row>
 
                             <Row className='form-group'>
@@ -154,13 +90,7 @@ class Contact extends Component {
                                     </div>
                                 </Col>
 
-                                <Col md={{size: 3, offset: 1 }}>
-                                    <Control.select model='.contactType' name='contactType'
-                                        classname= 'form-control'>
-                                        <option>Tel.</option>
-                                        <option>Email</option>    
-                                    </Control.select>
-                                </Col>
+
                             </Row>
 
                             <Row className='form-group'>
@@ -169,6 +99,12 @@ class Contact extends Component {
                                     <Control.textarea model=".message" id="message" name="message"
                                         rows="12" className = 'form-control' />
                                 </Col>
+
+                                <Errors  className='text-danger' model='.message' show='touched' 
+                                        messages={{
+                                            required: 'Required'
+                                         }}
+                                />
                             </Row>
                             <Row className='form-group'>
                                 <Col md={{size: 10, offset: 2}}>

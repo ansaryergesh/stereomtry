@@ -1,6 +1,30 @@
+@import "../node_modules/react-modal-video/scss/modal-video.scss";
+
 .row-header {
   margin: 0px auto;
   padding: 0px auto;
+}
+
+.product {
+  position: relative;
+}
+
+.video {
+  width: 100vw;
+  height: 100vh;
+}
+
+.playBtn {
+  position: absolute;
+  top: 48%;
+  left: 42%;
+  font-size: 64px;
+  color: rgba(0, 0, 0, 0.692);
+  cursor: pointer;
+}
+
+.playBtn:hover {
+  color: black;
 }
 
 .row-content {
@@ -10,8 +34,44 @@
   min-height: 400px;
 }
 
+.android {
+  background-color: transparent !important;
+  border: 1px solid white !important;
+  letter-spacing: 0.8px;
+  transition: ease-out 0.45s;
+}
+
+.android:hover {
+  background-color: white !important;
+  color: #230c93ce !important;
+  border: 1px solid white !important;
+  letter-spacing: 0.8px;
+}
+
+.ios:hover ~ .android {
+  background-color: white !important;
+  color: #230c93ce !important;
+  border: 1px solid white !important;
+  letter-spacing: 0.8px;
+}
+
+.ios {
+  background-color: white !important;
+  color: #230c93ce !important;
+  border: 1px solid white !important;
+  letter-spacing: 0.8px;
+  transition: ease-out 0.45s;
+}
+
+.android:hover ~ .ios {
+  background-color: transparent !important;
+  border: 1px solid white !important;
+  letter-spacing: 0.8px;
+  color: white !important;
+}
+
 .footer {
-  background-color: #D1C4E9;
+  background-color: #d1c4e9;
   margin: 0px auto;
   padding: 20px 0px 20px 0px;
 }
@@ -19,7 +79,7 @@
 .jumbotron {
   padding: 70px 30px 70px 30px;
   margin: 0px auto;
-  background: #9575CD !important;
+  background: #9575cd !important;
   color: floralwhite;
 }
 
@@ -29,22 +89,353 @@ address {
   color: #0f0f0f;
 }
 
+.heading1 {
+  color: #f04122e5;
+  line-height: 0.8;
+  text-shadow: 5px 3px 3px rgba(24, 24, 24, 0.5);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+}
+
+.heading2 {
+  color: rgb(209, 209, 209);
+  font-size: 18px;
+  text-shadow: 1px 1px 2px rgba(112, 110, 110, 0.89);
+  letter-spacing: 2.5px;
+  margin-bottom: 25px;
+  font-weight: normal;
+}
+
+.infoDesc {
+  margin-bottom: 15px;
+}
+
 .navbar-dark {
-  background-color: #230c93;
+  background-color: #341ab4;
+}
+
+.text {
+  font-size: 20px;
+  color: white;
+}
+
+.homePage {
+  padding: 35px 10px;
+  margin: 0 !important;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(35, 12, 147, 0.897),
+      rgba(35, 12, 147, 0.651)
+    ),
+    url(https://images.unsplash.com/photo-1454117096348-e4abbeba002c?ixlib=rb-1.2.1&w=1000&q=80);
+  /* https://i2.wp.com/wallpaperdownload.info/wp-content/uploads/2018/07/3d-Shape-Hd-Wallpaper-2018.jpg?ssl=1 */
+  /* background-image: url(https://i2.wp.com/wallpaperdownload.info/wp-content/uploads/2018/07/3d-Shape-Hd-Wallpaper-2018.jpg?ssl=1); */
+  /* https://lh3.googleusercontent.com/proxy/dSUTU_kCEP9TL-XNtmid7wp0S2A1xEIKEenPc88uTzLIjUII7t8GYghJMs3XPYbssIRteLQnr9Ep7rLCBDSCdJSIWtourx5VbZN_UyImJHxh5nLUwyzWuqAl */
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .leaderImg {
-  width: 100px;
-  height: 80px;
+  /* width: 100px;
+  height: 80px; */
+}
+
+.aboutUs {
+  width: 100%;
+}
+
+.phone {
+  width: 100%;
+  display: block;
 }
 
 .logo {
   display: none;
 }
 
+.page-enter {
+  opacity: 0.01;
+  transform: translateX(-100%);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: all 300ms ease-in;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.page-exit-active {
+  opacity: 0.01;
+  transform: translateX(100%);
+  transition: all 300ms ease-out;
+}
+
+.buttonsPr {
+  display: flex;
+  flex-direction: row;
+}
+
+.buttonsPr button {
+  margin-right: 25px;
+}
+
 @media only screen and (min-width: 768px) {
   .logo {
     display: block;
     margin-right: 50px;
+  }
+
+  .homePage {
+    display: flex;
+    align-items: center;
+    padding: 25px 150px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-item a span {
+    display: none !important;
+  }
+
+  .infoDesc {
+    text-align: center;
+  }
+
+  .buttonsPr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .phone {
+    display: flex;
+    margin-top: 25px;
+  }
+}
+
+.btn-content {
+  background-color: rgba(0, 128, 0, 0.301);
+  border: 1.5px solid rgba(0, 128, 0, 0.24);
+  color: white;
+  border-radius: 5px;
+  padding: 5px 15px;
+}
+
+.btn-content:hover {
+  background-color: rgba(0, 128, 0, 0.401);
+}
+
+/* Modal Styles */
+
+.modal-window {
+  position: fixed;
+  background-color: rgba(49, 48, 48, 0.534);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  display: none;
+  -webkit-transition: all 0.8s;
+  -moz-transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+.modal-window.open {
+  display: block;
+}
+
+.modal-window > div {
+  overflow-y: scroll;
+  width: 800px;
+  height: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2em;
+  background: #ffffff;
+  color: #333333;
+}
+
+.modal-window header {
+  font-weight: bold;
+}
+
+.allList {
+  display: grid;
+  grid-template-columns: 45% 45%;
+  grid-gap: 25px;
+  margin: 15px;
+  transition: 1s;
+}
+
+.allList p {
+  color: black;
+  font-size: 18px;
+  padding-bottom: 8px;
+  border-bottom: 0.09px solid black;
+}
+
+.allList p:hover {
+  letter-spacing: 0.5px;
+}
+
+.rule {
+  font-size: 18px;
+}
+
+.modal-window h1 {
+  font-size: 150%;
+  margin: 0 0 15px;
+  color: #333333;
+}
+
+.modal-close {
+  color: #aaa;
+  line-height: 50px;
+  font-size: 80%;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 70px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  color: #000;
+}
+.charts_orb {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-family: arial;
+  color: rgb(27, 26, 26);
+}
+.charts_orb .orb {
+  padding: 20px;
+}
+.charts_orb .orb .orb_graphic {
+  position: relative;
+}
+.charts_orb .orb .orb_graphic .orb_value {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+.charts_orb .orb .orb_label {
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 1em;
+}
+.charts_orb svg {
+  width: 110px;
+  height: 110px;
+}
+.charts_orb svg circle {
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke-dasharray: 314.16, 314.16;
+  stroke-width: 2;
+  fill: transparent;
+  r: 50;
+  cx: 55;
+  cy: 55;
+}
+.charts_orb svg circle.fill {
+  stroke: #d3d3d3;
+}
+.charts_orb svg circle.progress {
+  stroke: #ff6b00;
+  transition: stroke-dashoffset 0.35s;
+  stroke-dashoffset: 214.16;
+  -webkit-animation: NAME-YOUR-ANIMATION 1.5s forwards;
+  -webkit-animation-timing-function: linear;
+}
+.charts_orb svg circle.progress .charts_orb {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-family: arial;
+  color: white;
+}
+.charts_orb svg circle.progress .charts_orb .orb {
+  padding: 20px;
+}
+.charts_orb svg circle.progress .charts_orb .orb .orb_graphic {
+  position: relative;
+}
+.charts_orb svg circle.progress .charts_orb .orb .orb_graphic .orb_value {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+.charts_orb svg circle.progress .charts_orb .orb .orb_label {
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 1em;
+}
+.charts_orb svg circle.progress .charts_orb svg {
+  width: 110px;
+  height: 110px;
+}
+.charts_orb svg circle.progress .charts_orb svg circle {
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke-dasharray: 314.16, 314.16;
+  stroke-width: 2;
+  fill: transparent;
+  r: 50;
+  cx: 55;
+  cy: 55;
+}
+.charts_orb svg circle.progress .charts_orb svg circle.fill {
+  stroke: #444242;
+}
+.charts_orb svg circle.progress .charts_orb svg circle.progress {
+  stroke: #ff6b00;
+  transition: stroke-dashoffset 0.35s;
+  stroke-dashoffset: 214.16;
+  -webkit-animation: NAME-YOUR-ANIMATION 1.5s forwards;
+  -webkit-animation-timing-function: linear;
+}
+@-webkit-keyframes NAME-YOUR-ANIMATION {
+  0% {
+    stroke-dashoffset: 314.16;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes NAME-YOUR-ANIMATION {
+  0% {
+    stroke-dashoffset: 314.16;
+  }
+  100% {
+    stroke-dashoffset: 0;
   }
 }
