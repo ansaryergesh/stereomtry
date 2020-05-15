@@ -5,9 +5,6 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Link } from 'react-router-dom';
 
 const required = (val) => val && val.length;
-const maxLength = (len) => (val) => !(val) || (val.length <= len);
-const minLength = (len) => (val) => val && (val.length >= len);
-const isNumber = (val) => !isNaN(Number(val));
 const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
 
 class Contact extends Component {
@@ -19,8 +16,7 @@ class Contact extends Component {
     }
 
     handleSubmit(values) {
-        console.log('Current State is: ' + JSON.stringify(values));
-        alert('Current State is: ' + JSON.stringify(values));
+        this.props.postComment(values.text, values.email);
     }
 
     render() {
@@ -37,29 +33,12 @@ class Contact extends Component {
                     </div>
                 </div>
     
-                <div className = 'row row-content justify-content-center align-items-center' >
+                <div className = 'row row-content' >
                     <div className= 'col-12'>
                         <h3 className='text-center'>Give Feedback</h3>
                     </div>
-                    <div className = 'col-12 col-md-9'>
+                    <div className = 'col-12 col-md-6'>
                         <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
-                            <Row className='form-group'>
-                                <Label htmlFor='firstname' md={2}>Name:</Label>
-                                <Col md={10}>
-                                    <Control.text model='.firstname' id='firstname' name='firstname' placeholder='First Name'
-                                     className='form-control'
-                                       validators = {{
-                                         required,minLength: minLength(3), maxLength: maxLength(25)
-                                       }}
-                                     />
-                                     <Errors  className='text-danger' model='.firstname' show='touched' messages={{
-                                         required: 'Required!',
-                                         minLength: ' must be greater than 2 characters',
-                                         maxLength: ' must be less than 25 characters',
-                                     }}/>
-                                </Col>
-                            </Row>
-
                             <Row className='form-group'>
                                 <Label htmlFor='email' md={2}>Email:</Label>
                                 <Col md={10}>
@@ -79,28 +58,16 @@ class Contact extends Component {
                                 </Col>
                             </Row>
 
-                            <Row className='form-group'>
-                                <Col md={{size: 6, offset: 2 }}>
-                                    <div className='form-check'>
-                                        <Label check>
-                                            <Control.checkbox model='.agree' name='agree'
-                                                className='form-check-input'/> { ' '}
-                                                <strong>Contact you ???</strong>
-                                        </Label>
-                                    </div>
-                                </Col>
-
-
-                            </Row>
+                 
 
                             <Row className='form-group'>
-                                <Label htmlFor="message" md={2}>Your Feedback</Label>
+                                <Label htmlFor="text" md={2}>Your Feedback</Label>
                                 <Col md={10}>
-                                    <Control.textarea model=".message" id="message" name="message"
+                                    <Control.textarea model=".text" id="text" name="text"
                                         rows="12" className = 'form-control' />
                                 </Col>
 
-                                <Errors  className='text-danger' model='.message' show='touched' 
+                                <Errors  className='text-danger' model='.text' show='touched' 
                                         messages={{
                                             required: 'Required'
                                          }}
@@ -114,6 +81,18 @@ class Contact extends Component {
                                 </Col>
                             </Row>
                         </LocalForm>
+                    </div>
+                    <div className='col-12 col-md-6'>
+                        <div className="comment_block">
+                            <div className='avatar'>
+                                <img className='imgAvatar' src='https://img.favpng.com/17/3/18/computer-icons-user-profile-male-png-favpng-ZmC9dDrp9x27KFnnge0jKWKBs.jpg' />
+                            </div>
+                            <div className='comment-body'>
+                                <p>sdaasdasd</p>
+                                <p className='infoUser'><span className='fa fa-calendar date'> 02.05.2020</span><span>John Smith</span></p>
+                            </div>
+                             
+                        </div>          
                     </div>
                 </div>
             </div>

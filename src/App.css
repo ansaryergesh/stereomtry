@@ -48,7 +48,7 @@
   letter-spacing: 0.8px;
 }
 
-.ios:hover ~ .android {
+.ios:hover~.android {
   background-color: white !important;
   color: #230c93ce !important;
   border: 1px solid white !important;
@@ -63,7 +63,7 @@
   transition: ease-out 0.45s;
 }
 
-.android:hover ~ .ios {
+.android:hover~.ios {
   background-color: transparent !important;
   border: 1px solid white !important;
   letter-spacing: 0.8px;
@@ -123,11 +123,9 @@ address {
 .homePage {
   padding: 35px 10px;
   margin: 0 !important;
-  background-image: linear-gradient(
-      to right bottom,
+  background-image: linear-gradient(to right bottom,
       rgba(35, 12, 147, 0.897),
-      rgba(35, 12, 147, 0.651)
-    ),
+      rgba(35, 12, 147, 0.651)),
     url(https://images.unsplash.com/photo-1454117096348-e4abbeba002c?ixlib=rb-1.2.1&w=1000&q=80);
   /* https://i2.wp.com/wallpaperdownload.info/wp-content/uploads/2018/07/3d-Shape-Hd-Wallpaper-2018.jpg?ssl=1 */
   /* background-image: url(https://i2.wp.com/wallpaperdownload.info/wp-content/uploads/2018/07/3d-Shape-Hd-Wallpaper-2018.jpg?ssl=1); */
@@ -182,6 +180,38 @@ address {
 }
 
 .buttonsPr button {
+  margin-right: 25px;
+}
+
+.imgAvatar {
+  width: 100%;
+}
+
+.comment_block {
+  display: grid;
+  grid-template-columns: 10% 90%;
+  grid-gap: 10px;
+  background-color: #f0ececa2;
+  align-items: center;
+  padding: 15px;
+}
+
+.comment-body {
+  /* width: 90%;
+  display: block; */
+
+}
+
+.comment_body p {
+  line-height: normal !important;
+}
+
+.infoUser {
+  display: flex;
+  align-items: center;
+}
+
+.date {
   margin-right: 25px;
 }
 
@@ -251,7 +281,7 @@ address {
   display: block;
 }
 
-.modal-window > div {
+.modal-window>div {
   overflow-y: scroll;
   width: 800px;
   height: 400px;
@@ -313,6 +343,7 @@ address {
 .modal-close:hover {
   color: #000;
 }
+
 .charts_orb {
   display: flex;
   align-items: flex-start;
@@ -321,12 +352,15 @@ address {
   font-family: arial;
   color: rgb(27, 26, 26);
 }
+
 .charts_orb .orb {
   padding: 20px;
 }
+
 .charts_orb .orb .orb_graphic {
   position: relative;
 }
+
 .charts_orb .orb .orb_graphic .orb_value {
   position: absolute;
   top: 0;
@@ -339,15 +373,18 @@ address {
   font-size: 2.5em;
   font-weight: bold;
 }
+
 .charts_orb .orb .orb_label {
   text-transform: uppercase;
   text-align: center;
   margin-top: 1em;
 }
+
 .charts_orb svg {
   width: 110px;
   height: 110px;
 }
+
 .charts_orb svg circle {
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
@@ -358,9 +395,11 @@ address {
   cx: 55;
   cy: 55;
 }
+
 .charts_orb svg circle.fill {
   stroke: #d3d3d3;
 }
+
 .charts_orb svg circle.progress {
   stroke: #ff6b00;
   transition: stroke-dashoffset 0.35s;
@@ -368,6 +407,7 @@ address {
   -webkit-animation: NAME-YOUR-ANIMATION 1.5s forwards;
   -webkit-animation-timing-function: linear;
 }
+
 .charts_orb svg circle.progress .charts_orb {
   display: flex;
   align-items: flex-start;
@@ -376,12 +416,15 @@ address {
   font-family: arial;
   color: white;
 }
+
 .charts_orb svg circle.progress .charts_orb .orb {
   padding: 20px;
 }
+
 .charts_orb svg circle.progress .charts_orb .orb .orb_graphic {
   position: relative;
 }
+
 .charts_orb svg circle.progress .charts_orb .orb .orb_graphic .orb_value {
   position: absolute;
   top: 0;
@@ -394,15 +437,18 @@ address {
   font-size: 2.5em;
   font-weight: bold;
 }
+
 .charts_orb svg circle.progress .charts_orb .orb .orb_label {
   text-transform: uppercase;
   text-align: center;
   margin-top: 1em;
 }
+
 .charts_orb svg circle.progress .charts_orb svg {
   width: 110px;
   height: 110px;
 }
+
 .charts_orb svg circle.progress .charts_orb svg circle {
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
@@ -413,9 +459,11 @@ address {
   cx: 55;
   cy: 55;
 }
+
 .charts_orb svg circle.progress .charts_orb svg circle.fill {
   stroke: #444242;
 }
+
 .charts_orb svg circle.progress .charts_orb svg circle.progress {
   stroke: #ff6b00;
   transition: stroke-dashoffset 0.35s;
@@ -423,18 +471,22 @@ address {
   -webkit-animation: NAME-YOUR-ANIMATION 1.5s forwards;
   -webkit-animation-timing-function: linear;
 }
-@-webkit-keyframes NAME-YOUR-ANIMATION {
+
+.imgAva @-webkit-keyframes NAME-YOUR-ANIMATION {
   0% {
     stroke-dashoffset: 314.16;
   }
+
   100% {
     stroke-dashoffset: 0;
   }
 }
+
 @-webkit-keyframes NAME-YOUR-ANIMATION {
   0% {
     stroke-dashoffset: 314.16;
   }
+
   100% {
     stroke-dashoffset: 0;
   }
