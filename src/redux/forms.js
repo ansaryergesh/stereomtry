@@ -1,4 +1,5 @@
 export const InitialFeedback = {
     email: '',
-    text: ''
+    text: '',
+
 }

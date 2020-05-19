@@ -1,16 +1,13 @@
 import * as actionTypes from './actionTypes';
 import { baseUrl} from '../shared/baseUrl';
 
-export const addComment = (text) => ({
+export const addComment = (texts) => ({
     type: actionTypes.ADD_COMMENT,
-    payload: text
+    payload: texts
 });
 
-export const postComment = ( text, email) => (dispatch) => {
-    const newComment ={
-        text: text,
-        email: email
-    };
+export const postComment = (feedback) => (dispatch) => {
+    const newComment = {feedback}
 
     return fetch(baseUrl + 'addComment.php',{
         method: 'POST',

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem,Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import CommentForm from './CommentForm';
+import CommentForm from './CommentList';
 import ThreeObj from './ThreeObj'
 
     function RenderDish({dish}) {

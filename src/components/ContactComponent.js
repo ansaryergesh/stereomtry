@@ -1,11 +1,32 @@
 import React, {Component} from 'react';
 import { Breadcrumb, BreadcrumbItem,
     Button, Row, Col, Label } from 'reactstrap';
-import { Control, LocalForm, Errors } from 'react-redux-form';
+import { Control, LocalForm, Errors, Form } from 'react-redux-form';
 import { Link } from 'react-router-dom';
-
+import CommentList from './CommentList';
 const required = (val) => val && val.length;
 const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
+
+function RenderComments({texts}) {
+    var commentList = texts.map(text => {
+        return (
+            <div key={text.id} className="comment-block">
+                 <div className='avatar'>
+                                <img className='imgAvatar' src='https://img.favpng.com/17/3/18/computer-icons-user-profile-male-png-favpng-ZmC9dDrp9x27KFnnge0jKWKBs.jpg' />
+                            </div>
+                  <div className='comment-body'>
+                      <p>{text.text}</p>
+                      <p className='infoUser'><span className='fa fa-calendar date'></span><span>{text.email}</span></p>
+                  </div>
+            </div>
+        )
+    })
+    return(
+        <div className='row'>
+            {commentList}
+        </div>
+    )
+}
 
 class Contact extends Component {
     
@@ -16,7 +37,8 @@ class Contact extends Component {
     }
 
     handleSubmit(values) {
-        this.props.postComment(values.text, values.email);
+        this.props.postComment(values);
+        this.props.resetFeedbackForm();
     }
 
     render() {
@@ -38,7 +60,7 @@ class Contact extends Component {
                         <h3 className='text-center'>Give Feedback</h3>
                     </div>
                     <div className = 'col-12 col-md-6'>
-                        <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
+                        <Form model='texts' onSubmit={(values) => this.handleSubmit(values)}>
                             <Row className='form-group'>
                                 <Label htmlFor='email' md={2}>Email:</Label>
                                 <Col md={10}>
@@ -80,10 +102,10 @@ class Contact extends Component {
                                     </Button>
                                 </Col>
                             </Row>
-                        </LocalForm>
+                        </Form>
                     </div>
                     <div className='col-12 col-md-6'>
-                        <div className="comment_block">
+                        {/* <div className="comment_block">
                             <div className='avatar'>
                                 <img className='imgAvatar' src='https://img.favpng.com/17/3/18/computer-icons-user-profile-male-png-favpng-ZmC9dDrp9x27KFnnge0jKWKBs.jpg' />
                             </div>
@@ -91,8 +113,9 @@ class Contact extends Component {
                                 <p>sdaasdasd</p>
                                 <p className='infoUser'><span className='fa fa-calendar date'> 02.05.2020</span><span>John Smith</span></p>
                             </div>
-                             
-                        </div>          
+                       
+                        </div>           */}
+                        {/* <RenderComments texts = {this.props.texts} /> */}
                     </div>
                 </div>
             </div>
