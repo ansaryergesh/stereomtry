@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 import {postComment, fetchComments} from '../redux/actionCreators';
 const mapStateToProps = state => {
     return {
-      texts: state.texts,
+      comments: state.comments,
     }
 }
 const mapDispatchToProps = (dispatch) => ({ 

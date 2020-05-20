@@ -1,19 +1,20 @@
 import * as actionTypes from './actionTypes';
 import { baseUrl} from '../shared/baseUrl';
 
-export const addComment = (texts) => ({
+export const addComment = (comments) => ({
     type: actionTypes.ADD_COMMENT,
-    payload: texts
+    payload: comments
 });
 
 export const postComment = (feedback) => (dispatch) => {
     const newComment = {feedback}
 
-    return fetch(baseUrl + 'addComment.php',{
+    return fetch('/web/addComment.php',{
         method: 'POST',
         body: JSON.stringify(newComment),
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
         },
         credentials: 'same-origin'
     })
@@ -39,7 +40,7 @@ export const postComment = (feedback) => (dispatch) => {
 
 
 export const fetchComments = () => (dispatch) => {
-    return fetch(baseUrl + 'getComment.php')
+    return fetch('/web/getComment.php')
     .then(response =>{
         if(response.ok) {
             return response;

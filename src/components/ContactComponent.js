@@ -4,29 +4,23 @@ import { Breadcrumb, BreadcrumbItem,
 import { Control, LocalForm, Errors, Form } from 'react-redux-form';
 import { Link } from 'react-router-dom';
 import CommentList from './CommentList';
+import {postComment, fetchComments} from '../redux/actionCreators';
+import { actions } from 'react-redux-form';
+import { connect } from 'react-redux';
 const required = (val) => val && val.length;
 const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
-
-function RenderComments({texts}) {
-    var commentList = texts.map(text => {
-        return (
-            <div key={text.id} className="comment-block">
-                 <div className='avatar'>
-                                <img className='imgAvatar' src='https://img.favpng.com/17/3/18/computer-icons-user-profile-male-png-favpng-ZmC9dDrp9x27KFnnge0jKWKBs.jpg' />
-                            </div>
-                  <div className='comment-body'>
-                      <p>{text.text}</p>
-                      <p className='infoUser'><span className='fa fa-calendar date'></span><span>{text.email}</span></p>
-                  </div>
-            </div>
-        )
-    })
-    return(
-        <div className='row'>
-            {commentList}
-        </div>
-    )
+const mapStateToProps = state => {
+    return {
+      comments: state.comments,
+    }
 }
+const mapDispatchToProps = (dispatch) => ({ 
+  postComment:(feedback) => dispatch(postComment(feedback)),
+  fetchComments: () => { dispatch(fetchComments()); },
+  resetFeedbackForm: () => { dispatch(actions.reset('feedback'))},
+
+})
+
 
 class Contact extends Component {
     
@@ -105,17 +99,18 @@ class Contact extends Component {
                         </Form>
                     </div>
                     <div className='col-12 col-md-6'>
-                        {/* <div className="comment_block">
-                            <div className='avatar'>
-                                <img className='imgAvatar' src='https://img.favpng.com/17/3/18/computer-icons-user-profile-male-png-favpng-ZmC9dDrp9x27KFnnge0jKWKBs.jpg' />
+                        {this.props.comments.comments.map(comment =>(
+                            <div className="comment-block">
+                                 <div className='avatar'>
+                                    <img className='imgAvatar' src='https://img.favpng.com/17/3/18/computer-icons-user-profile-male-png-favpng-ZmC9dDrp9x27KFnnge0jKWKBs.jpg' />
+                                </div>
+
+                                <div className='comment-body'>
+                                    <p>{comment.text}</p>
+                                <p className='infoUser'><span className='fa fa-calendar date'>{comment.date}</span><span>{comment.email}</span></p>
                             </div>
-                            <div className='comment-body'>
-                                <p>sdaasdasd</p>
-                                <p className='infoUser'><span className='fa fa-calendar date'> 02.05.2020</span><span>John Smith</span></p>
                             </div>
-                       
-                        </div>           */}
-                        {/* <RenderComments texts = {this.props.texts} /> */}
+                        ))}
                     </div>
                 </div>
             </div>
@@ -124,4 +119,5 @@ class Contact extends Component {
     
 }
 
-export default Contact;
+
+export default (connect(mapStateToProps, mapDispatchToProps)(Contact));
