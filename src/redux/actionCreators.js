@@ -1,5 +1,4 @@
 import * as actionTypes from './actionTypes';
-import { baseUrl} from '../shared/baseUrl';
 
 export const addComment = (comments) => ({
     type: actionTypes.ADD_COMMENT,

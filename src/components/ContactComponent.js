@@ -3,9 +3,6 @@ import { Breadcrumb, BreadcrumbItem,
     Button, Row, Col, Label } from 'reactstrap';
 import { Control, LocalForm, Errors, Form } from 'react-redux-form';
 import { Link } from 'react-router-dom';
-import CommentList from './CommentList';
-import {postComment, fetchComments} from '../redux/actionCreators';
-import { actions } from 'react-redux-form';
 import { connect } from 'react-redux';
 const required = (val) => val && val.length;
 const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
@@ -14,12 +11,7 @@ const mapStateToProps = state => {
       comments: state.comments,
     }
 }
-const mapDispatchToProps = (dispatch) => ({ 
-  postComment:(feedback) => dispatch(postComment(feedback)),
-  fetchComments: () => { dispatch(fetchComments()); },
-  resetFeedbackForm: () => { dispatch(actions.reset('feedback'))},
 
-})
 
 
 class Contact extends Component {
@@ -100,14 +92,14 @@ class Contact extends Component {
                     </div>
                     <div className='col-12 col-md-6'>
                         {this.props.comments.comments.map(comment =>(
-                            <div className="comment-block">
+                            <div className="comment_block">
                                  <div className='avatar'>
                                     <img className='imgAvatar' src='https://img.favpng.com/17/3/18/computer-icons-user-profile-male-png-favpng-ZmC9dDrp9x27KFnnge0jKWKBs.jpg' />
                                 </div>
 
                                 <div className='comment-body'>
                                     <p>{comment.text}</p>
-                                <p className='infoUser'><span className='fa fa-calendar date'>{comment.date}</span><span>{comment.email}</span></p>
+                                <p className='infoUser'><span className='fa fa-calendar date'>&nbsp; {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit', hour:'numeric', minute:'numeric' }).format(new Date(Date.parse(comment.date)))}</span><span className='fa fa-envelope'>&nbsp; {comment.email}</span></p>
                             </div>
                             </div>
                         ))}
@@ -120,4 +112,4 @@ class Contact extends Component {
 }
 
 
-export default (connect(mapStateToProps, mapDispatchToProps)(Contact));
+export default (connect(mapStateToProps)(Contact));

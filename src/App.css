@@ -184,7 +184,8 @@ address {
 }
 
 .imgAvatar {
-  width: 100%;
+  width: 80%;
+  top: 0;
 }
 
 .comment_block {
@@ -192,7 +193,6 @@ address {
   grid-template-columns: 10% 90%;
   grid-gap: 10px;
   background-color: #f0ececa2;
-  align-items: center;
   padding: 15px;
 }
 
@@ -202,14 +202,17 @@ address {
 
 }
 
-.comment_body p {
+.comment-body p {
   line-height: normal !important;
 }
 
 .infoUser {
   display: flex;
   align-items: center;
+  font-size: 12px;
+  color: rgb(90, 87, 87)
 }
+
 
 .date {
   margin-right: 25px;
