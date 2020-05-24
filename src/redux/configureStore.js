@@ -6,11 +6,11 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { InitialFeedback } from './forms';
 
-
 export const ConfigureStore = () => {
   const store = createStore(
       combineReducers({
           comments: Comments,
+          dishes: Reducer,
           ...createForms({feedback: InitialFeedback})
       }),
       applyMiddleware(thunk, logger)

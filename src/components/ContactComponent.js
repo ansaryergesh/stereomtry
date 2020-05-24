@@ -12,8 +12,6 @@ const mapStateToProps = state => {
     }
 }
 
-
-
 class Contact extends Component {
     
     constructor(props) {
@@ -24,10 +22,12 @@ class Contact extends Component {
 
     handleSubmit(values) {
         this.props.postComment(values);
+        // console.log(values.email, values.text)
         this.props.resetFeedbackForm();
     }
 
     render() {
+        const sorted = this.props.comments.comments.sort(function(a,b) {return b.id - a.id});
         return(
             <div className="container">
                 <div classname="row h-100 justify-content-center align-items-center">
@@ -46,7 +46,7 @@ class Contact extends Component {
                         <h3 className='text-center'>Give Feedback</h3>
                     </div>
                     <div className = 'col-12 col-md-6'>
-                        <Form model='texts' onSubmit={(values) => this.handleSubmit(values)}>
+                        <Form model='feedback' onSubmit={(values) => this.handleSubmit(values)}>
                             <Row className='form-group'>
                                 <Label htmlFor='email' md={2}>Email:</Label>
                                 <Col md={10}>
@@ -90,8 +90,8 @@ class Contact extends Component {
                             </Row>
                         </Form>
                     </div>
-                    <div className='col-12 col-md-6'>
-                        {this.props.comments.comments.map(comment =>(
+                      <div className='col-12 col-md-6'>
+                        {sorted.map(comment =>(
                             <div className="comment_block">
                                  <div className='avatar'>
                                     <img className='imgAvatar' src='https://img.favpng.com/17/3/18/computer-icons-user-profile-male-png-favpng-ZmC9dDrp9x27KFnnge0jKWKBs.jpg' />

@@ -14,6 +14,7 @@ import {postComment, fetchComments} from '../redux/actionCreators';
 const mapStateToProps = state => {
     return {
       comments: state.comments,
+      dishes: state.dishes,
     }
 }
 const mapDispatchToProps = (dispatch) => ({ 

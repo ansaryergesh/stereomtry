@@ -6,14 +6,13 @@ export const addComment = (comments) => ({
 });
 
 export const postComment = (feedback) => (dispatch) => {
-    const newComment = {feedback}
+    const newComment = Object.assign({}, feedback)
 
     return fetch('/web/addComment.php',{
         method: 'POST',
         body: JSON.stringify(newComment),
         headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
+            'Content-Type': 'application/json'
         },
         credentials: 'same-origin'
     })
@@ -33,7 +32,7 @@ export const postComment = (feedback) => (dispatch) => {
         })
         .then(response => response.json())
         .then(response => dispatch(addComment(response)))
-        .catch(error => {console.log('Something went wrong', error.message)})
+        .catch(error => {alert(error.message)})
 
 }
 
