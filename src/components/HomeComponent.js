@@ -29,7 +29,7 @@ class Home extends Component {
                     <p className='text'>200 tg - download AR Stereomtry mobile app and prepare for having <br></br> a lot of fun working with Augmented Reality</p>
                    
                     <div className='buttonsPr'>
-                        <Button className='android'><span className='fa fa-play '> Play Market</span></Button>
+                        <Button className='android playLink'><a className='playLink' target="_blank"  href='https://play.google.com/store/apps/details?id=com.IITUStudents.ARStereometry'><span className='fa fa-play '> Play Market</span></a></Button>
                         <Button className='ios'><span className='fa fa-apple '> App Store</span></Button>
                     </div>
                 </div>

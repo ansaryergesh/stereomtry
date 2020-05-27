@@ -48,6 +48,10 @@
   letter-spacing: 0.8px;
 }
 
+.android:hover~.playLink {
+  color: #230c93ce !important
+}
+
 .ios:hover~.android {
   background-color: white !important;
   color: #230c93ce !important;
@@ -213,6 +217,13 @@ address {
   color: rgb(90, 87, 87)
 }
 
+.playLink {
+  color: white !important;
+}
+
+.playLink:hover {
+  color: #230c93ce !important;
+}
 
 .date {
   margin-right: 25px;
