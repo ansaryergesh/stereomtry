@@ -31,7 +31,7 @@ class Home extends Component {
                     <div className='buttonsPr'>
                         <Button className='android playLink'><a className='playLink' target="_blank"  href='https://play.google.com/store/apps/details?id=com.IITUStudents.ARStereometry'><span className='fa fa-play '> Play Market</span></a></Button>
                         <Button className='ios'><span className='fa fa-apple '> App Store</span></Button>
-                        <Button><a href='https://drive.google.com/file/d/1J_X4hjdBWiATyul8z_cTMc4tu4yOxjY2/view?usp=sharing' target='_blank' title='Book' download='Book.pdf'>download</a></Button>
+                        <Button><a href='https://raw.githubusercontent.com/ansaryergesh/stereomtry/master/ARStereometry.pdf' target='_blank' title='Book' download='Book.pdf'>download</a></Button>
                     </div>
                 </div>
                 <div className="col-12 col-md-4 product">
