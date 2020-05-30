@@ -41,7 +41,6 @@ export const postComment = (feedback) => (dispatch) => {
         .then(response => response.json())
         .then(response => dispatch(addComment(response)))
         .catch(error => {alert(error.message)})
-
 }
 
 

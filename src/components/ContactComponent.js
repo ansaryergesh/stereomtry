@@ -22,9 +22,9 @@ class Contact extends Component {
 
     handleSubmit(values) {
         this.props.postComment(values);
-        // console.log(values.email, values.text)
         this.props.resetFeedbackForm();
     }
+
 
     render() {
         const sorted = this.props.comments.comments.sort(function(a,b) {return b.id - a.id});
@@ -90,6 +90,7 @@ class Contact extends Component {
                             </Row>
                         </Form>
                     </div>
+                    
                       <div className='col-12 col-md-6'>
                         {sorted.map(comment =>(
                             <div className="comment_block">
