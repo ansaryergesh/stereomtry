@@ -4,6 +4,12 @@ import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
     Form, FormGroup, Input, Label } from 'reactstrap';
 import {NavLink} from 'react-router-dom';
 import SimpleModal from "./SimpleModal";
+import { connect } from 'react-redux';
+const mapStateToProps = state => {
+    return {
+      themes: state.themes,
+    }
+}
 class Header extends Component {
       constructor(props) {
     super(props);
@@ -53,47 +59,17 @@ class Header extends Component {
                                 <div>
                                 <h1>Topic List</h1>
                                 <div className='allList'>
-                                <p> Теорема о трех перпендикулярах</p>
-                                    <p>Нахождение угла между прямыми</p>
-                                    <p>Пирамида</p>
-                                    <p>
-                                        Призма
-                                    </p>
-                                    <p>
-                                        Параллелепипед (частный случай призмы)
-                                    </p>
-                                    <p>
-                                        Куб (частный случай прямоугольного параллелепипеда)
-                                    </p>
-                                    <p>
-                                        Цилиндр
-                                    </p>
-                                    <p>
-                                        Вписанные и описанные поверхности
-                                    </p>
-                                    <p>
-                                        Сечения различных пространственных фигур
-                                    </p>
-                                    <p>
-                                        Теорема о трех перпендикулярах
-                                    </p>
-                                    <p>
-                                        Нахождение угла между плоскостями (двугранный угол)
-                                    </p>
-                                    <p>
-                                        Правильная и прямоугольная пирамиды
-                                    </p>
-                                    <p>
-                                        Прямая и правильная призмы
-                                    </p>
-                                    <p>
-                                        Прямоугольный параллелепипед
-                                    </p>
+                                    {this.props.themes.themes.map(theme=>(
+                                        <div>
+                                            <p>{theme.name}</p>
+                                        </div>
+                                    ))}
                                 </div>
                                 </div>
                             </SimpleModal>
                                 {/* <span className='fa fa-pencil fa-lg'>Content of App</span> */}
                         </NavItem>
+
                     </Nav>
                   </Collapse>
               </div>
@@ -104,4 +80,5 @@ class Header extends Component {
     }
 }
 
-export default Header;
+
+export default (connect(mapStateToProps)(Header));

@@ -2,11 +2,12 @@
   "name": "confusion",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://augmented.zzz.com.ua",
+  "proxy": "https://augmented.zzz.com.ua",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "bootstrap-social": "^5.1.1",
     "font-awesome": "^4.7.0",

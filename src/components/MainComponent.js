@@ -10,17 +10,19 @@ import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { actions } from 'react-redux-form';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
-import {postComment, fetchComments} from '../redux/actionCreators';
+import {postComment, fetchComments, fetchThemes} from '../redux/actionCreators';
 const mapStateToProps = state => {
     return {
       comments: state.comments,
       dishes: state.dishes,
+      themes: state.themes,
     }
 }
 const mapDispatchToProps = (dispatch) => ({ 
   postComment:(feedback) => dispatch(postComment(feedback)),
   fetchComments: () => { dispatch(fetchComments()); },
   resetFeedbackForm: () => { dispatch(actions.reset('feedback'))},
+  fetchThemes: () => {dispatch(fetchThemes())},
 
 })
 class MainComponent extends Component {
@@ -30,6 +32,7 @@ class MainComponent extends Component {
   }
 
   componentDidMount() {
+    this.props.fetchThemes();
     this.props.fetchComments();
   }
 

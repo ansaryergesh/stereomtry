@@ -6,7 +6,7 @@ export const Comments = (state = {
 }, action) => {
     switch(action.type) {
         case actionTypes.ADD_COMMENT:
-            return {...state, comments: action.payload};
+            return {...state, comments: state.comments.concat(action.payload)};
         default:
             return state;
     }

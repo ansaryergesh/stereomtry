@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 
 function RenderMenuItem ({dish, onClick}) {
     return (
-        <Card>
-            <Link to={`/figures/${dish.id}`} >
+        <Card className='cards'>
+            <a href={`https://${dish.link}.ansaryergesh.com`} target='_blank' >
                 <CardImg width="100%" src={dish.image} alt={dish.name} />
                 <CardImgOverlay>
                     <CardTitle>{dish.name}</CardTitle>
                 </CardImgOverlay>
-            </Link>
+                </a>
         </Card>
     );
 }
