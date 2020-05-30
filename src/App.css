@@ -210,6 +210,26 @@ address {
 
 }
 
+.bookBlock {
+  padding: 18px 0;
+  border-bottom: #341ab4 !important;
+}
+
+.bookBlock:hover {}
+
+.linkToBook {
+  color: white;
+  padding-bottom: 200px !important;
+  font-size: 16px;
+
+}
+
+.linkToBook:hover {
+  color: rgb(247, 129, 129);
+
+
+}
+
 .comment-body p {
   line-height: normal !important;
 }

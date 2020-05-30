@@ -12,7 +12,7 @@ class About extends Component {
       componentDidMount() {
         $(document).ready(() => {
           let html = '';
-          for (let i = 1; i <= 20; i++) {
+          for (let i = 1; i <= 10; i++) {
             html += `<div class="shape-container--${i} shape-animation"><div class="random-shape"></div></div>`;
           }
     
