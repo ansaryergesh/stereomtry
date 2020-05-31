@@ -37,11 +37,14 @@ class Home extends Component {
                 </div>
                 <div className="col-12 col-md-4 product">
                    <img src = {require('../assets/images/1.png')} className='phone' />
+                   <a href='https://arstereomtry-v.ansaryergesh.com'>
+                   <span onClick={this.onOpenModal} className="fa fa-play-circle-o fa-3x playBtn" aria-hidden="true"></span>
+                   </a>
                    {/* <img src = {require('../assets/images/play-circle-regular.svg')} className='playBtn' /> */}
-                   <div>
+                   {/* <div>
                    <ModalVideo channel='youtube' className='video'  isOpen={this.state.open} videoId='3ITdZJPzrWs' onClose={() => this.setState({open: false})} />
                    <span onClick={this.onOpenModal} className="fa fa-play-circle-o fa-3x playBtn" aria-hidden="true"></span>
-                   </div>
+                   </div> */}
 {/* 
                    <video ref="video">
                         <source src={require('../.././video.mp4')} type="video/mp4" />
