@@ -42,6 +42,10 @@ class Home extends Component {
                    <ModalVideo channel='youtube' className='video'  isOpen={this.state.open} videoId='3ITdZJPzrWs' onClose={() => this.setState({open: false})} />
                    <span onClick={this.onOpenModal} className="fa fa-play-circle-o fa-3x playBtn" aria-hidden="true"></span>
                    </div>
+{/* 
+                   <video ref="video">
+                        <source src={require('../.././video.mp4')} type="video/mp4" />
+                    </video> */}
                    
                 </div>
                 </div>
