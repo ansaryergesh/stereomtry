@@ -30,7 +30,7 @@
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "three": "^0.116.1",
+    "three": "^0.125.0",
     "three-obj-mtl-loader": "^1.0.3",
     "three-orbitcontrols": "^2.110.3",
     "three-react-mtl-loader": "^1.2.0",
